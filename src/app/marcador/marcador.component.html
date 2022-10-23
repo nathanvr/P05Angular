@@ -13,3 +13,21 @@
     <img [src]="equipoVisitante.logo" alt="logo equipo visitante" />
   </div>
 </div>
+<div class="equipos">
+  <app-equipo
+    class="equipo"
+    [equipo]="equipoLocal"
+    (canasta)="getCanastaLocal($event)"
+  >
+  </app-equipo>
+  <app-equipo
+    class="equipo"
+    [equipo]="equipoVisitante"
+    (canasta)="getCanastaVisitante($event)"
+  >
+  </app-equipo>
+</div>
+<app-top-score
+  [equipoLocal]="equipoLocal"
+  [equipoVisitante]="equipoVisitante"
+></app-top-score>

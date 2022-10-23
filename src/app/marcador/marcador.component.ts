@@ -42,7 +42,7 @@ export class MarcadorComponent implements OnInit {
   };
 
   equipoVisitante: any = {
-    nombre: 'Celtics',
+    nombre: 'celtics',
     logo: '/assets/img/BOS.svg',
     jugadores: [
       {
@@ -76,4 +76,21 @@ export class MarcadorComponent implements OnInit {
   constructor() {}
 
   ngOnInit(): void {}
+  getCanastaLocal($event: any): void {
+    this.puntosLocales += $event.puntos;
+    this.equipoLocal.jugadores.forEach((element: any) => {
+      if (element.nombre === $event.nombreJugador) {
+        element.puntos += $event.puntos;
+      }
+    });
+  }
+
+  getCanastaVisitante($event: any): void {
+    this.puntosVisitantes += $event.puntos;
+    this.equipoVisitante.jugadores.forEach((element: any) => {
+      if (element.nombre === $event.nombreJugador) {
+        element.puntos += $event.puntos;
+      }
+    });
+  }
 }
